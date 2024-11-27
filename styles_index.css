@@ -1,30 +1,46 @@
 /********************************************** FEUILLE DE STYLE DE L'INDEX ********************************************************************/
 
-
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Luckiest+Guy&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Paytone+One&family=Rammetto+One&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Luckiest+Guy&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Comic+Neue:wght@400;700&family=Cormorant+Infant&family=Poppins&family=Sahitya:wght@700&family=Ubuntu&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
-
-
-
 body
 {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    background-image: linear-gradient(to top, #eedaac 0%, #fde7e7 100%);
+    background: url(./black-friday-elements-assortment.jpg);
+    background-size: 100%;
+    background-position-y: center;
+} 
+
+/* NAVBAR */
+#navBar{
+    width:100%;
+    height:10vh;
+    background-color:blanchedalmond;
+}
+
+#navBar__previous{
+    width:max-content;
+    padding: 3vh 0 3vh 10vh;
+}
+
+#navBar__previous p{
+    margin:0;
+}
+
+#navBar__previous a{
+    font-size:1em;
+    font-family: "Quicksand", sans-serif;
+    color:rgb(85, 85, 85);
+}
+
+#navBar__previous:hover{
+    transform: scale(1.3);
 }
 
 /* TITRE */
 h1{
   text-align: center;
-  color: rgb(43, 30, 30);
+  color:rgb(85, 85, 85);
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8em;
+  font-weight: 400;
 }
 
 /* CONTENEUR DU FORMULAIRE */
@@ -37,11 +53,10 @@ h1{
 /* CONTENEUR DU CONTENU DE LA PAGE ("CARD") */
 
 #mainContent__wrapper{
-  width:20%;
-  background-color: rgba(255, 255, 255, 0.734);
+  width:15%;
+  background-color: rgb(141, 199, 181, 0.81);
   border:1px solid black;
   border-radius: 30px;
-  box-shadow:5px 5px 5px rgb(228, 195, 164);
   padding:10px;
   margin:50px auto 50px auto;
 }
@@ -52,16 +67,17 @@ p{
   font-size: 1em;
   padding:10px;
   text-align: center;
+  font-family: "Quicksand", sans-serif;
 }
 
 /* BOUTON AJOUTER */
 #boutonAjouter{
   border-radius:20px;
   height:4vh;
-  border: solid rgb(36, 174, 36) 1px;
+  border: solid rgb(166, 224, 84) 1px;
   font-weight: 700;
   color:white;
-  background-color:rgb(36, 174, 36);
+  background-color:rgb(166, 224, 84);
 }
 
 #boutonAjouter:hover{
@@ -77,155 +93,12 @@ p{
 } 
 
 
-/*footer */
+/* FOOTER */
 
-.darksoul-footer
-{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-bottom: 0px;
-    width: 100%;
-    height: 350px;
-    background: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='margin:auto;background:rgba(221, 221, 221, 0);display:block;z-index:1;position:relative' width='3000' height='588' preserveAspectRatio='xMidYMid' viewBox='0 0 3000 588'><g transform='translate(1500,294) scale(-1,-1) translate(-1500,-294)'><linearGradient id='lg-0.9997820734103322' x1='0' x2='1' y1='0' y2='0'><stop stop-color='%23ffffff' offset='0'></stop><stop stop-color='%23ffffff' offset='1'></stop></linearGradient><path d='' fill='url(%23lg-0.9997820734103322)' opacity='0.37'><animate attributeName='d' dur='10s' repeatCount='indefinite' keyTimes='0;0.333;0.667;1' calcMode='spline' keySplines='0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1' begin='0s' values='M0 0L 0 558.9888918874962Q 300 557.9557135224538  600 520.7201791558826T 1200 493.0888623871913T 1800 448.04775521801616T 2400 442.32786157869174T 3000 400.5000938220193L 3000 0 Z;M0 0L 0 531.8219503412562Q 300 581.2367793971861  600 536.6456794845121T 1200 526.1199153747991T 1800 453.6567543549444T 2400 426.5449945053999T 3000 429.5661867072931L 3000 0 Z;M0 0L 0 572.7600127243211Q 300 599.6891402698932  600 560.6693012791557T 1200 514.6895687962055T 1800 485.3535117451038T 2400 447.8902433799051T 3000 454.9458231426154L 3000 0 Z;M0 0L 0 558.9888918874962Q 300 557.9557135224538  600 520.7201791558826T 1200 493.0888623871913T 1800 448.04775521801616T 2400 442.32786157869174T 3000 400.5000938220193L 3000 0 Z'></animate></path></g></svg>") no-repeat center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-
-    
-}
-.darksoul-footer-heading
-{
-    height: fit-content;
-    font-family: 'Rammetto One', cursive;
-    margin: auto;
-    font-size: 5vw;
-}
-.darksoul-footer-content
-{
-    width: 100%;
-    height: 80%;
-    display: flex;
-}
-.darksoul-footer-bottom
-{
-    margin: auto;
-    width: 100%;
-    height: 20%;
-    display: flex;
-    font-family: 'Josefin Sans', sans-serif;
-}
-.darksoul-footer-bottom-sec
-{
-    margin: auto;
-}
-.darksoul-footer-bottom-sec a
-{
-    text-decoration: none;
-
-    color: #0a0a0a;
-}
-.darksoul-footer-bottom-sec a:hover
-{
-    font-weight: 700;
-}
-.darksoul-footer-section
-{
-    margin: auto;
-}
-.d-footer-ul
-{
-    list-style: none;
-    font-family: 'Josefin Sans', sans-serif;
-}
-.d-footer-li
-{
-    margin-bottom: 5px;
-}
-.d-footer-li:hover
-{
-    cursor: pointer;
-    transform: translateX(10px);
-    transition: all 0.4s;
-    font-weight: 700;
-}
-.d-footer-li-h
-{
-    margin-bottom: 10px;
-}
-.logo
-{
-    max-width: 120px;
-    max-height: 120px;
-    display: flex;
-    margin: auto;
-   margin-top: 10px;
-}
-.logo-head
-{
-    font-family: 'Josefin Sans', sans-serif;
-    margin: auto;
-    display: flex;
-}
-.logo a
-{
-    margin: auto;
-    max-width: 100%;
-}
-
-@media only screen and (max-width: 900px) 
-{
-    .darksoul-footer
-    {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        margin-bottom: 0px;
-        width: 100%;
-        height: fit-content;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        background: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='margin:auto;background:rgba(221, 221, 221, 0);display:block;z-index:1;position:relative' width='3000' height='588' preserveAspectRatio='xMidYMid' viewBox='0 0 3000 588'><g transform='translate(1500,294) scale(-1,-1) translate(-1500,-294)'><linearGradient id='lg-0.9997820734103322' x1='0' x2='1' y1='0' y2='0'><stop stop-color='%23ffffff' offset='0'></stop><stop stop-color='%23ffffff' offset='1'></stop></linearGradient><path d='' fill='url(%23lg-0.9997820734103322)' opacity='0.37'><animate attributeName='d' dur='10s' repeatCount='indefinite' keyTimes='0;0.333;0.667;1' calcMode='spline' keySplines='0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1' begin='0s' values='M0 0L 0 558.9888918874962Q 300 557.9557135224538  600 520.7201791558826T 1200 493.0888623871913T 1800 448.04775521801616T 2400 442.32786157869174T 3000 400.5000938220193L 3000 0 Z;M0 0L 0 531.8219503412562Q 300 581.2367793971861  600 536.6456794845121T 1200 526.1199153747991T 1800 453.6567543549444T 2400 426.5449945053999T 3000 429.5661867072931L 3000 0 Z;M0 0L 0 572.7600127243211Q 300 599.6891402698932  600 560.6693012791557T 1200 514.6895687962055T 1800 485.3535117451038T 2400 447.8902433799051T 3000 454.9458231426154L 3000 0 Z;M0 0L 0 558.9888918874962Q 300 557.9557135224538  600 520.7201791558826T 1200 493.0888623871913T 1800 448.04775521801616T 2400 442.32786157869174T 3000 400.5000938220193L 3000 0 Z'></animate></path></g></svg>") no-repeat center center;
-      
-    }
-    .darksoul-footer-content
-    {
-        width: 100%;
-        height: 80%;
-        display: flex;
-        flex-direction: column;
-    }
-    .darksoul-footer-bottom
-    {
-        margin: auto;
-        margin-bottom: 0px;
-        height: 20%;
-        display: flex;
-        flex-direction: column;
-        font-family: 'Josefin Sans', sans-serif;
-    }
-    .logo-head b
-    {
-        font-family: 'Josefin Sans', sans-serif;
-        margin: auto;
-        text-align: center;
-    } 
-    .d-footer-ul
-    {
-        list-style: none;
-        font-family: 'Josefin Sans', sans-serif;
-    }
-    .d-footer-li
-    {
-        margin-bottom: 5px;
-        margin-left: -40px;
-        text-align: center;
-    }
-    .d-footer-li-h
-    {
-        margin-bottom: 10px;
-        margin-left: -40px;
-        text-align: center;
-    }
+footer{
+    position:absolute;
+    bottom:0;
+    height:20vh;
+    width:100%;
+    background-color:blanchedalmond;
 }

@@ -5,27 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ajout produit</title>
         <!-- FEUILLES DE STYLE -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.16/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="styles_index.css">
         <!-- FONTS -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.21.16/js/uikit.min.js" integrity="sha512-vKDeN+i81+kMaXLe0V9cAAFaYRsVbX61IV4B6JYZIGa8rM9cNlRrMqiKKe358+A3tpO9W8yjaxC3O/AVij3sog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      
     </head>
 
     <body>
-    <nav class="uk-navbar-container">
-        <div class="uk-container">
-            <div uk-navbar>
-                <div class="uk-navbar-left">
-                    <ul class="uk-navbar-nav">
-                        <li class="uk-active"><a href="#">Retour page précédente</a></li>
-                    </ul>
+    
+        <nav>
+            <div id="navBar">
+                <div id="navBar__previous">
+                    <a href="#"><p>Retour au panier</p></a>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+
         <div id="mainContent__wrapper">
             <h1>Ajouter un produit</h1>
                 <div id="form__wrapper">
@@ -55,34 +52,15 @@
                 </div> 
         </div>   
 
- 
-        <div class="darksoul-footer">
-            <div class="darksoul-footer-top">
-            </div>
-                <div class="darksoul-footer-section">
-                    <div class="logo-head">
-                        <b>Follow us on</b>
-                    </div>
-                    <div class="logo">
-                    <a href="#" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/100/instagram-new.png" alt="instagram-new"/></a>
-                    </div>    
-                </div>
-            </div>
-            <div class="darksoul-footer-bottom">
-                <div class="darksoul-footer-bottom-sec">
-                    <p>Privacy</p>
-                </div>
-                <div class="darksoul-footer-bottom-sec">
-                    <p>&copy; 2024</p>
-                </div>
-                <div class="darksoul-footer-bottom-sec">
-                    <p>Contact us</p>
-                </div>
-            </div> 
-        </div>
-       
+        <footer>
+            <p>&copy; 2024</p>
+        </footer>
     </body>
 </html>
+
+
+
+
 
 
 
