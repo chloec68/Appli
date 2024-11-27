@@ -5,6 +5,7 @@
         $name = filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING);
         $price = filter_input(INPUT_POST,"price",FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         $qtt = filter_input(INPUT_POST,"qtt",FILTER_VALIDATE_INT);
+        $nbArticles = filter_input(INPUT_POST,"nbArticles",FILTER_VALIDATE_INT);
 
         if($name && $price && $qtt){
 
@@ -12,7 +13,8 @@
                 "name" => $name,
                 "price" => $price,
                 "qtt" => $qtt,
-                "total" => $price*$qtt
+                "total" => $price*$qtt,
+                "nbArticles" => $nbArticles,
             ];
 
             $_SESSION['products'][]=$product;

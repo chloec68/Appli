@@ -30,6 +30,7 @@
                     "</thead>",
                     "<tbody>";
             $totalGeneral=0;
+            $nbArticles=0;
             foreach($_SESSION['products'] as $index => $product){
                 echo "<tr>",
                         "<td>".$index."</td>",
@@ -47,7 +48,10 @@
                 "</tr>",
             "</tbody>",
                 "</table>";
+
+            
         }
+        // header("refresh: 3"); 
     ?>
 </body>
 </html>

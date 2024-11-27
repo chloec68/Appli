@@ -20,6 +20,9 @@
                 <div id="navBar__previous">
                     <a href="recap.php"><p>Retour au panier</p></a>
                 </div>
+                <div id="navBar__nbArticles">
+                    <?php include "totalArticles.php"; ?>
+                </div>
             </div>
         </nav>
 
