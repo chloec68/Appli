@@ -18,7 +18,7 @@
         <nav>
             <div id="navBar">
                 <div id="navBar__previous">
-                    <a href="#"><p>Retour au panier</p></a>
+                    <a href="recap.php"><p>Retour au panier</p></a>
                 </div>
             </div>
         </nav>
