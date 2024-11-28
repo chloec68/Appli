@@ -51,17 +51,11 @@
             //$_SESSION -> permet d'enregistrer $product en session
             // plus généralement, cette superglobale contient les données stockées dans la session utilisateur côté serveur
             //(à condition que la session ait été démarrée)
-        }
-
-        if( empty($_POST["name"]) || empty($_POST["price"]) || empty($_POST["qtt"])){
-            $alerte = "Veuillez remplir le(s) champ(s) vide(s)";
-            echo $alerte;
         }else{
-            $alerte = "Ajouté au panier !";
-            echo $alerte;
-        }
 
-        $_SESSION['alerte'][]=$alerte;
+            $_SESSION['message'] = "Veuillez remplir le(s) champ(s) vide(s)";
+          
+        }
     }
 
      

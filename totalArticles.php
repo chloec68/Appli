@@ -1,5 +1,5 @@
 <?php
-    // La condition qui suit démarre une session si elle n'est pas démarrée ou récupère celle déjà démarrée
+    // La condition qui suit démarre une session si elle n'est pas démarrée ou récupère celle déjà démarrée:
     if(!isset($_SESSION)) 
     { 
         session_start(); 

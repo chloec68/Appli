@@ -63,7 +63,13 @@
                          <!-- Le fait d'attribuer un NAME à l'INPUT bouton permet de vérifier côté serveur que le formulaire ait été validé par 
                           l'utilisteur -->
                     </form>
-                    <?php $_SESSION['alerte'] ?>
+                    <?php 
+                        if(empty($_SESSION['products'])==true){
+                            echo "<p id='alerte'>".$_SESSION['message']."</p>";
+                        }else{
+                            echo "<p>produit ajouté</p>";
+                        }
+                    ?>
                 </div>
         </div>   
 
