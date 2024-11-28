@@ -64,10 +64,10 @@
                           l'utilisteur -->
                     </form>
                     <?php 
-                        if(empty($_SESSION['products'])==true){
+                        if(empty( $_SESSION['name'])==false || empty($_SESSION['price']==false || empty($_SESSION['qtt']==false))){
+                            echo "<p id='alerte'>".$_SESSION['ajoute']."</p>";
+                        }else{ 
                             echo "<p id='alerte'>".$_SESSION['message']."</p>";
-                        }else{
-                            echo "<p>produit ajouté</p>";
                         }
                     ?>
                 </div>

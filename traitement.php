@@ -3,7 +3,7 @@
  en session -->
 
 <?php
-    session_start(); //crée un session ou restaure celle trouvée sur le serveur;
+    session_start(); //crée une session ou restaure celle trouvée sur le serveur;
 
     if(isset($_POST['submit'])){
     
@@ -51,6 +51,9 @@
             //$_SESSION -> permet d'enregistrer $product en session
             // plus généralement, cette superglobale contient les données stockées dans la session utilisateur côté serveur
             //(à condition que la session ait été démarrée)
+
+            $_SESSION['ajoute'] = "Produit ajouté!";
+
         }else{
 
             $_SESSION['message'] = "Veuillez remplir le(s) champ(s) vide(s)";
