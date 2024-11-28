@@ -63,6 +63,7 @@
                          <!-- Le fait d'attribuer un NAME à l'INPUT bouton permet de vérifier côté serveur que le formulaire ait été validé par 
                           l'utilisteur -->
                     </form>
+                    <?php $_SESSION['alerte'] ?>
                 </div>
         </div>   
 

@@ -9,13 +9,32 @@
     
     //$_POST -> variable superglobale (variable permettant de récupérer des infos transmises par le client au serveur) qui contient toutes
     //les données transmises au serveur par l'intermédiaire d'un formulaire 
+    // => if(isset($_POST['submit'])){} -> permet de vérifier l'existence de la clé "submit" dans le tableau $_POST
+    //La clé 'submit' correspond à l'attribut 'name' du bouton <input type="submit" name ="submit">.
+    //Cette condition permet que le fichier traitement.php ne soit pas atteignable par l'URL
+    //Ainsi seules les requêtes HTTP provenant de la soumission du formulaire sont recevables
+    // si la condition est fausse, cf header();
     
         $name = filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING);
         $price = filter_input(INPUT_POST,"price",FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         $qtt = filter_input(INPUT_POST,"qtt",FILTER_VALIDATE_INT);
         $nbArticles = filter_input(INPUT_POST,"nbArticles",FILTER_VALIDATE_INT);
 
+    // => FILTER_SANITIZE_STRING (champ "name") -> ce filtre supprime une chaîne de caractères de toute présence de caractères spéciaux
+    // et de toute balise HTML potentielle ou les encode -> impossible d'injecter du HTML
+    // => FILTER_VALIDATE_FLOAT (champ "price") : validera le prix que s'il est un nombre à virgule (pas de texte ou autre…)
+    // le drapeau FILTER_FLAG_ALLOW_FRACTION est ajouté pour permettre l'utilisation du caractère "," ou "." pour la décimale.
+    //=> FILTER_VALIDATE_INT : ne valide la quantité renseignée que si elle est un entier différent de 0 (=nul)
+    // => filter_input() renvoie en cas de succès la valeur assainie correspondant au champ traité,
+    // false si le filtre échoue ou null si le champ sollicité par le nettoyage n'existait pas dans la requête POST.
+    // => donc pas de risque que l'utilisateur transmette un champ supplémentaire
+
         if($name && $price && $qtt){
+
+        // => if($name && $price && $qtt){} -> permet de vérifier si les filtres ont fonctionné.
+        //La condition = la variable contient-elle une valeur positive (string, number, ...) ou false, null, 0?
+        //on veut juste vérifier si les variables contiennent chacune une valeur jugée positive, puisqu'un filtre qui échoue renvoie false
+        // ou null 
 
             $product = [
                 "name" => $name,
@@ -25,22 +44,40 @@
                 "nbArticles" => $nbArticles,
             ];
 
+            // création d'un tableau associatif pour organiser les données 
+
             $_SESSION['products'][]=$product;
 
-            //$_SESSION -> contient les données stockées dans la session utilisateur côté serveur (à condition que la session ait été démarrée)
+            //$_SESSION -> permet d'enregistrer $product en session
+            // plus généralement, cette superglobale contient les données stockées dans la session utilisateur côté serveur
+            //(à condition que la session ait été démarrée)
         }
+
+        if( empty($_POST["name"]) || empty($_POST["price"]) || empty($_POST["qtt"])){
+            $alerte = "Veuillez remplir le(s) champ(s) vide(s)";
+            echo $alerte;
+        }else{
+            $alerte = "Ajouté au panier !";
+            echo $alerte;
+        }
+
+        $_SESSION['alerte'][]=$alerte;
     }
 
+     
 
-    $_SESSION["alert"]
 
-    if(isset($_POST['submit'])){}
-
-    unset()
 
 
 
     header("Location:index.php");
+
+    // => header() -> dans le cas où la condition précédente est fausse, cette fonction effectue une redirection en envoyant un nouvel entête HTTP
+// au client. 
+// /!\ la fonction header() nécessite 2 précautions :
+// 1. pas d'émission d'un début de réponse avant header() par la page 
+// 2. header() doit être la dernière instruction du fichier ou être immédiatement suivie de exit() ou die(), en raison de l'exécution du script
+//courant.
 
 
 // => session_start(); -> cette fonction permet de démarrer une session de l'utilisateur sur le serveur OU récupérer la session de cet
@@ -49,27 +86,10 @@
 //La durée de vie d'un cookie dépend de la configuration serveur. Par défaut, le cookie expire à la fermeture du navigateur :
 //Expiration/Max-Age=Session
 
-// => if(isset($_POST['submit'])){} -> permet de vérifier l'existence de la clé "submit" dans le tableau $_POST
-//La clé 'submit' correspond à l'attribut 'name' du bouton <input type="submit" name ="submit">.
 
-// => header() -> dans le cas où la condition précédente est fausse, cette fonction effectue une redirection en envoyant un nouvel entête HTTP
-// au client. 
-// /!\ la fonction header() nécessite 2 précautions :
-// 1. pas d'émission d'un début de réponse avant header() par la page 
-// 2. header() doit être la dernière instruction du fichier ou être immédiatement suivie de exit() ou die(), en raison de l'exécution du script
-//courant.
 
-// => FILTER_SANITIZE_STRING (champ "name") -> ce filtre supprime une chaîne de caractères de toute présence de caractères spéciaux
-// et de toute balise HTML potentielle ou les encode -> impossible d'injecter du HTML
 
-// => FILTER_VALIDATE_FLOAT (champ "price") : validera le prix que s'il est un nombre à virgule (pas de texte ou autre…)
-// le drapeau FILTER_FLAG_ALLOW_FRACTION est ajouté pour permettre l'utilisation du caractère "," ou "." pour la décimale.
 
-// => filter_input() renvoie en cas de succès la valeur assainie correspondant au champ traité,
-// false si le filtre échoue ou null si le champ sollicité par le nettoyage n'existait pas dans la requête POST.
-
-// => if($name && $price && $qtt){} -> permet de vérifier si les filtres ont fonctionné. La condition = la variale contient-elle une valeur
-//positive (string, number, ...) ou false, null, 0?
 
 // le tableau associatif $product et $SESSION['products'][]=$product; => permet de stocker les données en session,
 // en l'ajoutant au tableau $_SESSION
