@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    session_start(); //crée un session ou restaure celle trouvée sur le serveur;
 
     if(isset($_POST['submit'])){
         $name = filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING);
@@ -18,9 +18,16 @@
             ];
 
             $_SESSION['products'][]=$product;
+        }
 
+        if($name=="" || $qtt=="" || $prix==""){
+            echo "Veuillez remplir le champ";
+        }else{
+            echo "Success!";
         }
     }
+
+
 
     header("Location:index.php");
 
