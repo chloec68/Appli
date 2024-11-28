@@ -1,7 +1,15 @@
+<!-- Ce fichier traite la requête provenant de index.php après soumission du formulaire.
+ Il ajoute le produit avec son nom, son prix, sa quantité, le total (et le nombre d'articles)
+ en session -->
+
 <?php
     session_start(); //crée un session ou restaure celle trouvée sur le serveur;
 
     if(isset($_POST['submit'])){
+    
+    //$_POST -> variable superglobale (variable permettant de récupérer des infos transmises par le client au serveur) qui contient toutes
+    //les données transmises au serveur par l'intermédiaire d'un formulaire 
+    
         $name = filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING);
         $price = filter_input(INPUT_POST,"price",FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         $qtt = filter_input(INPUT_POST,"qtt",FILTER_VALIDATE_INT);
@@ -18,6 +26,8 @@
             ];
 
             $_SESSION['products'][]=$product;
+
+            //$_SESSION -> contient les données stockées dans la session utilisateur côté serveur (à condition que la session ait été démarrée)
         }
     }
 

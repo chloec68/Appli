@@ -30,6 +30,13 @@
             <h1>Ajouter un produit</h1>
                 <div id="form__wrapper">
                     <form action="traitement.php" method="post">
+                        <!-- l'attribut action : indique la cible du formulaire = le fichier à atteindre lorsque
+                         l'utilisateur soumet le formulaire -->
+                         <!-- l'attribut method : précise par quelle méthode HTTP les données du formulaire sont transmises;
+                          cette méthode permet de ne pas polluer l'URL contrairement à la méthode GET (méthode par défaut si rien 
+                          n'est précisé). Avec la méthode GET, les données des champs seraient inscrites dans l'URL et dès lors limitées en
+                          nombre de caractères -->
+
                         <p>
                             <label>
                                 Nom du produit : 
@@ -51,6 +58,10 @@
                         <p>
                             <input id="boutonAjouter" type="submit" name="submit" value="Ajouter le produit">
                         </p>
+                        <!-- Chaque INPUT dispose d'un attribut NAME : cela va permettre à la requête de classer le contenu de la saisie dans des
+                         clés qui portent alors le nom désigné ; Voir var_DUMP($_POST) -->
+                         <!-- Le fait d'attribuer un NAME à l'INPUT bouton permet de vérifier côté serveur que le formulaire ait été validé par 
+                          l'utilisteur -->
                     </form>
                 </div>
         </div>   
