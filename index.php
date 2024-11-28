@@ -64,10 +64,14 @@
                           l'utilisteur -->
                     </form>
                     <?php 
-                        if(empty( $_SESSION['name'])==false || empty($_SESSION['price'])==false || empty($_SESSION['qtt'])==false){
-                            echo "<p id='alerte'>".$_SESSION['ajoute']."</p>";
+                        if(!isset($_POST['name'])){
+                            $_SESSION['message']="Veuillez remplir le(s) champ(s) vide(s)";
+                            echo $_SESSION['message'];
+                            // echo "<p id='alerte'>".$_SESSION['message']."</p>";
                         }else{ 
-                            echo "<p id='alerte'>".$_SESSION['message']."</p>";
+                            $_SESSION['message']="Produit ajouté!";
+                            echo $_SESSION['message'];
+                            // echo "<p id='alerte'>".$_SESSION['ajoute']."</p>";
                         }
                     ?>
                 </div>
