@@ -19,13 +19,14 @@
 
             $_SESSION['products'][]=$product;
         }
-
-        if($name=="" || $qtt=="" || $prix==""){
-            echo "Veuillez remplir le champ";
-        }else{
-            echo "Success!";
-        }
     }
+
+
+    $_SESSION["alert"]
+
+    if(isset($_POST['submit'])){}
+
+    unset()
 
 
 

@@ -52,7 +52,7 @@
                             <input id="boutonAjouter" type="submit" name="submit" value="Ajouter le produit">
                         </p>
                     </form>
-                </div> 
+                </div>
         </div>   
 
         <footer>
