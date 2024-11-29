@@ -5,37 +5,49 @@
 <?php
     session_start(); //crée une session ou restaure celle trouvée sur le serveur;
 
-    if(isset($_POST['submit'])){
+ 
+                    // CREATION DE FONCTIONNALITES 
+
+
+
+        if(isset($_GET["action"])){
+            // -> permet de collecter les infos des champs "input"
+
+            switch($_GET["action"]){
+                case "add":
+
+                    if(isset($_POST['submit'])){
     
-    //$_POST -> variable superglobale (variable permettant de récupérer des infos transmises par le client au serveur) qui contient toutes
-    //les données transmises au serveur par l'intermédiaire d'un formulaire 
-    // => if(isset($_POST['submit'])){} -> permet de vérifier l'existence de la clé "submit" dans le tableau $_POST
-    //La clé 'submit' correspond à l'attribut 'name' du bouton <input type="submit" name ="submit">.
-    //Cette condition permet que le fichier traitement.php ne soit pas atteignable par l'URL
-    //Ainsi seules les requêtes HTTP provenant de la soumission du formulaire sont recevables
-    // si la condition est fausse, cf header();
-    
-        $name = filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING);
-        $price = filter_input(INPUT_POST,"price",FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-        $qtt = filter_input(INPUT_POST,"qtt",FILTER_VALIDATE_INT);
-        $nbArticles = filter_input(INPUT_POST,"nbArticles",FILTER_VALIDATE_INT);
-
-    // => FILTER_SANITIZE_STRING (champ "name") -> ce filtre supprime une chaîne de caractères de toute présence de caractères spéciaux
-    // et de toute balise HTML potentielle ou les encode -> impossible d'injecter du HTML
-    // => FILTER_VALIDATE_FLOAT (champ "price") : validera le prix que s'il est un nombre à virgule (pas de texte ou autre…)
-    // le drapeau FILTER_FLAG_ALLOW_FRACTION est ajouté pour permettre l'utilisation du caractère "," ou "." pour la décimale.
-    //=> FILTER_VALIDATE_INT : ne valide la quantité renseignée que si elle est un entier différent de 0 (=nul)
-    // => filter_input() renvoie en cas de succès la valeur assainie correspondant au champ traité,
-    // false si le filtre échoue ou null si le champ sollicité par le nettoyage n'existait pas dans la requête POST.
-    // => donc pas de risque que l'utilisateur transmette un champ supplémentaire
-
-        if($name && $price && $qtt){
-
-        // => if($name && $price && $qtt){} -> permet de vérifier si les filtres ont fonctionné.
-        //La condition = la variable contient-elle une valeur positive (string, number, ...) ou false, null, 0?
-        //on veut juste vérifier si les variables contiennent chacune une valeur jugée positive, puisqu'un filtre qui échoue renvoie false
-        // ou null 
-
+                        //$_POST -> variable superglobale (variable permettant de récupérer des infos transmises par le client au serveur) qui contient toutes
+                        //les données transmises au serveur par l'intermédiaire d'un formulaire 
+                        // => if(isset($_POST['submit'])){} -> permet de vérifier l'existence de la clé "submit" dans le tableau $_POST
+                        //La clé 'submit' correspond à l'attribut 'name' du bouton <input type="submit" name ="submit">.
+                        //Cette condition permet que le fichier traitement.php ne soit pas atteignable par l'URL
+                        //Ainsi seules les requêtes HTTP provenant de la soumission du formulaire sont recevables
+                        // si la condition est fausse, cf header();
+                        
+                            $name = filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING);
+                            $price = filter_input(INPUT_POST,"price",FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+                            $qtt = filter_input(INPUT_POST,"qtt",FILTER_VALIDATE_INT);
+                            $nbArticles = filter_input(INPUT_POST,"nbArticles",FILTER_VALIDATE_INT);
+                    
+                        // => FILTER_SANITIZE_STRING (champ "name") -> ce filtre supprime une chaîne de caractères de toute présence de caractères spéciaux
+                        // et de toute balise HTML potentielle ou les encode -> impossible d'injecter du HTML
+                        // => FILTER_VALIDATE_FLOAT (champ "price") : validera le prix que s'il est un nombre à virgule (pas de texte ou autre…)
+                        // le drapeau FILTER_FLAG_ALLOW_FRACTION est ajouté pour permettre l'utilisation du caractère "," ou "." pour la décimale.
+                        //=> FILTER_VALIDATE_INT : ne valide la quantité renseignée que si elle est un entier différent de 0 (=nul)
+                        // => filter_input() renvoie en cas de succès la valeur assainie correspondant au champ traité,
+                        // false si le filtre échoue ou null si le champ sollicité par le nettoyage n'existait pas dans la requête POST.
+                        // => donc pas de risque que l'utilisateur transmette un champ supplémentaire
+                    
+                            if($name && $price && $qtt){
+                    
+                            // => if($name && $price && $qtt){} -> permet de vérifier si les filtres ont fonctionné.
+                            //La condition = la variable contient-elle une valeur positive (string, number, ...) ou false, null, 0?
+                            //on veut juste vérifier si les variables contiennent chacune une valeur jugée positive, puisqu'un filtre qui échoue renvoie false
+                            // ou null 
+                    
+                         
             $product = [
                 "name" => $name,
                 "price" => $price,
@@ -54,28 +66,47 @@
 
             $_SESSION['message']=$message;
 
-                    // CREATION DE FONCTIONNALITES 
-        if(isset($_GET["action"])){
-
-            switch($_GET["action"]){
-                case "add":
-                    <form action="traitement.php?action=add" method="post">;
-                    break;
-                case "delete":
-                    <form action="traitement.php?action=delete" method="post">;
-                    break;
-                case "clear":
-                    <form action="traitement.php?action=clear" method="post">;
-                    break;
-                case "u-qtt":
-                    <form action="traitement.php?action=u-qtt" method="post">;
-                    break;
-                case "down-qtt":
-                    <form action="traitement.php?action=down-qtt" method="post">;
-                    break;
-            }
         }
-        
+    }
+            header("Location:index.php");
+            break;
+            die;
+
+          
+
+                     case "clear":
+                        unset($_SESSION['products']) ;
+                    break;
+                    die;
+                 
+
+                //     <form action="traitement.php?action=add" method="post">;
+                //     break;
+
+                // case "delete":
+                //     <form action="traitement.php?action=delete" method="post">;
+                //     unset($product);
+                //     break;
+
+            //     case "clear":
+            //         if(isset($_POST["clearAll"]))
+            //         <form action="traitement.php?action=clear" method="post">;
+            //         reset($products)
+            //         break;
+
+            //     case "u-qtt":
+            //         if(isset($_POST["plus"])){
+            //             <form action="traitement.php?action=u-qtt" method="post">;
+            //         }
+            //         break;
+
+            //     case "down-qtt":
+            //         if(isset($_POST["minus"])){
+            //             <form action="traitement.php?action=down-qtt" method="post">;
+            //         }
+                   
+            //         break;
+    }
 
         // l'attribut action : indique la cible du formulaire = le fichier à atteindre lorsque l'utilisateur soumet le formulaire 
         // l'attribut method : précise par quelle méthode HTTP les données du formulaire sont transmises; La méthode POST permet de passer les 
@@ -85,7 +116,9 @@
 
 
         }
-    }
+
+        header("Location:index.php");
+    
 
 
   
@@ -96,7 +129,6 @@
 
 
 
-    header("Location:index.php");
 
     // => header() -> dans le cas où la condition précédente est fausse, cette fonction effectue une redirection en envoyant un nouvel entête HTTP
 // au client. 

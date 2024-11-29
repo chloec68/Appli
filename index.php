@@ -29,14 +29,13 @@
         <div id="mainContent__wrapper">
             <h1>Ajouter un produit</h1>
                 <div id="form__wrapper">
-                    <form action="traitement.php" method="post">
+                    <form action="traitement.php?action=add" method="post">
                         <!-- l'attribut action : indique la cible du formulaire = le fichier à atteindre lorsque
                          l'utilisateur soumet le formulaire -->
                          <!-- l'attribut method : précise par quelle méthode HTTP les données du formulaire sont transmises;
                           cette méthode permet de ne pas polluer l'URL contrairement à la méthode GET (méthode par défaut si rien 
                           n'est précisé). Avec la méthode GET, les données des champs seraient inscrites dans l'URL et dès lors limitées en
                           nombre de caractères -->
-
                         <p>
                             <label>
                                 Nom du produit : 
@@ -64,7 +63,7 @@
                           l'utilisteur -->
 
                           <?php 
-                        if(!isset($_SESSION["name"])||!isset($_SESSION["price"])||!isset($SESSION["qtt"])){
+                        if(!isset($_SESSION["name"]) || !isset($_SESSION["price"]) || !isset($SESSION["qtt"]) && $_POST["submit"]){
                             $_SESSION["message"]="Veuillez remplir le(s) champ(s) vide(s)";
                             echo "<p id='alerte'>".$_SESSION["message"]."</p>";
                         }else{ 
