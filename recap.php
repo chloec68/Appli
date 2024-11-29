@@ -59,7 +59,7 @@
                         "<td>".$product['name']."</td>",
                         "<td>".number_format($product['price'],2,",","&nbsp;")."&nbsp;€</td>",
                         "<td><button name='plus'>+</button>"." ".$product['qtt']." "."<button name='minus'>-</button></td>",
-                        "<td>".number_format($product['total'],2,",","&nbsp;")."&nbsp;€"." "."<button>Supprimer l'article</button></td>",
+                        "<td>".number_format($product['total'],2,",","&nbsp;")."&nbsp;€"." "."<a href='traitement.php?action=delete&id=<?=$index?>'>Supprimer l'article</a></td>",
                     "</tr>";
                 $totalGeneral+=$product['total'];
                 $nbArticles+=$product['qtt'];
