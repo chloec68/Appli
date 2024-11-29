@@ -54,7 +54,36 @@
 
             $_SESSION['message']=$message;
 
-          
+                    // CREATION DE FONCTIONNALITES 
+        if(isset($_GET["action"])){
+
+            switch($_GET["action"]){
+                case "add":
+                    <form action="traitement.php?action=add" method="post">;
+                    break;
+                case "delete":
+                    <form action="traitement.php?action=delete" method="post">;
+                    break;
+                case "clear":
+                    <form action="traitement.php?action=clear" method="post">;
+                    break;
+                case "u-qtt":
+                    <form action="traitement.php?action=u-qtt" method="post">;
+                    break;
+                case "down-qtt":
+                    <form action="traitement.php?action=down-qtt" method="post">;
+                    break;
+            }
+        }
+        
+
+        // l'attribut action : indique la cible du formulaire = le fichier à atteindre lorsque l'utilisateur soumet le formulaire 
+        // l'attribut method : précise par quelle méthode HTTP les données du formulaire sont transmises; La méthode POST permet de passer les 
+        // données saisies par l'utilisateur dans la requête elle-même. Cette méthode permet de ne pas polluer l'URL contrairement à la méthode
+        // GET (méthode par défaut si rien n'est précisé). Avec la méthode GET, les données des champs seraient inscrites dans l'URL et dès lors
+        // limitées en nombre de caractères 
+
+
         }
     }
 
