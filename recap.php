@@ -3,6 +3,7 @@
 // Cette page permet d'afficher de manière organisée la liste des produits présents en session
 
     session_start(); // 
+    var_dump($_SESSION['products']);
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <nav>
             <div id="navBar">
                 <div id="navBar__previous">
@@ -59,7 +59,7 @@
                         "<td>".$product['name']."</td>",
                         "<td>".number_format($product['price'],2,",","&nbsp;")."&nbsp;€</td>",
                         "<td><button name='plus'>+</button>"." ".$product['qtt']." "."<button name='minus'>-</button></td>",
-                        "<td>".number_format($product['total'],2,",","&nbsp;")."&nbsp;€"." "."<a href='traitement.php?action=delete&id=<?=$index?>'>Supprimer l'article</a></td>",
+                        "<td>".number_format($product['total'],2,",","&nbsp;")."&nbsp;€"." "."<a href='traitement.php?action=deleteItem&id=$index'>Supprimer l'article</a></td>",
                     "</tr>";
                 $totalGeneral+=$product['total'];
                 $nbArticles+=$product['qtt'];
@@ -79,11 +79,12 @@
                 <a href='traitement.php?action=clear'>Vider le panier</a>
             </div>";
         };
-
+    
         ?>
 
        
-        <!-- traitement.php?action=delete&id=<?php echo $index?> -->
+        <!-- <a href='traitement.php?action=delete&id=<?php echo $index?>'>
+        <a href='traitement.php?action=delete&id=<?=$index?>'> -->
 </body>
 </html>
 

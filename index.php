@@ -63,19 +63,21 @@
                           l'utilisteur -->
 
                           <?php 
-                        if(!isset($_SESSION["name"]) || !isset($_SESSION["price"]) || !isset($SESSION["qtt"]) && $_POST["submit"]){
-                            $_SESSION["message"]="Veuillez remplir le(s) champ(s) vide(s)";
-                            echo "<p id='alerte'>".$_SESSION["message"]."</p>";
-                        }else{ 
-                            $_SESSION["message"]="Produit ajouté!";
-                            echo "<p id='alerte'>".$_SESSION["message"]."</p>";
-                        }
+                        // if(!isset($_SESSION["name"]) || !isset($_SESSION["price"]) || !isset($SESSION["qtt"]) && $_POST["submit"]){
+                        //     $_SESSION["message"]="Veuillez remplir le(s) champ(s) vide(s)";
+                        //     echo "<p id='alerte'>".$_SESSION["message"]."</p>";
+                        // }else{ 
+                        //     $_SESSION["message"]="Produit ajouté!";
+                        //     echo "<p id='alerte'>".$_SESSION["message"]."</p>";
+                        // }
+
+                       
                     ?>
                     </form>
   
                 </div>
         </div>   
-
+       
         <footer>
             <p>&copy; 2024</p>
         </footer>
