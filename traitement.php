@@ -60,6 +60,7 @@
                                     "total" => $price*$qtt,
                                     "nbArticles" => $nbArticles,
                                 ];
+                          
 
                                 // création d'un tableau associatif pour organiser les données 
 
@@ -68,6 +69,8 @@
                                     //$_SESSION -> permet d'enregistrer $product en session
                                     // plus généralement, cette superglobale contient les données stockées dans la session utilisateur côté serveur
                                     //(à condition que la session ait été démarrée)
+                                    // le tableau associatif $product et $SESSION['products'][]=$product; => permet de stocker
+                                    //   les données en session, en l'ajoutant au tableau $_SESSION
 
                                     $_SESSION['message']=$message;
 
@@ -95,24 +98,20 @@
                     die;
                 
                 case "u-qtt":
-                    ($_SESSION['products'][$_GET['id']]['qtt']++)
-              
-
-                //     action='traitemment.php?action= '
+                    ($_SESSION['products'][$_GET['id']]['qtt']++);
+                    header("Location:index.php");
+                    break;
+                    die;
                 
-                 
-                                
-
-                // case "down-qtt":
-                //       unset($_SESSION['product']['qtt'])
-                //       
-                //         }
-                //         break;
+                case "down-qtt":
+                    ($_SESSION['products'][$GET_['id']]['qtt']++);
+                    header("Location:index.php");
+                    break;
+                    die;
              }
         }
 
        
-
         header("Location:index.php");
 
         // => header() -> dans le cas où la condition précédente est fausse, cette fonction effectue une redirection en envoyant un nouvel entête HTTP
@@ -130,8 +129,7 @@
 
 
 
-// le tableau associatif $product et $SESSION['products'][]=$product; => permet de stocker les données en session,
-// en l'ajoutant au tableau $_SESSION
+
 
 //['product'] => permet de créer la clé (si 1er article ajouté au panier) ou de récupérer l'existante
 // [] => raccourci indiquant que nous ajoutons une nouvelle entrée au futur tableau "productS" associé à cette clé
