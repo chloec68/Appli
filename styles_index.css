@@ -64,7 +64,7 @@ h1{
 #mainContent__wrapper{
   width:15%;
   background-color: rgb(141, 199, 181, 0.81);
-  border:1px solid black;
+  border:1px solid rgb(85, 85, 85);
   border-radius: 30px;
   padding:10px;
   margin:50px auto 50px auto;
@@ -102,13 +102,18 @@ p{
   width: 20vh;
 } 
 
+/* MESSAGE */
+#alerte{
+  
+}
+
 
 /* FOOTER */
 
 footer{
     position:absolute;
     bottom:0;
-    height:20vh;
+    height:10vh;
     width:100%;
     background-color:blanchedalmond;
 }

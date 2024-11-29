@@ -52,16 +52,14 @@
             // plus généralement, cette superglobale contient les données stockées dans la session utilisateur côté serveur
             //(à condition que la session ait été démarrée)
 
-            // $_SESSION['ajoute'] = "Produit ajouté!";
             $_SESSION['message']=$message;
 
-        // }else{
-
-            // $_SESSION['message'] = "Veuillez remplir le(s) champ(s) vide(s)";
-        
           
         }
     }
+
+
+  
 
      
 

@@ -62,18 +62,18 @@
                          clés qui portent alors le nom désigné ; Voir var_DUMP($_POST) -->
                          <!-- Le fait d'attribuer un NAME à l'INPUT bouton permet de vérifier côté serveur que le formulaire ait été validé par 
                           l'utilisteur -->
-                    </form>
-                    <?php 
-                        if(!isset($_POST['name'])){
-                            $_SESSION['message']="Veuillez remplir le(s) champ(s) vide(s)";
-                            echo $_SESSION['message'];
-                            // echo "<p id='alerte'>".$_SESSION['message']."</p>";
+
+                          <?php 
+                        if(!isset($_SESSION["name"])||!isset($_SESSION["price"])||!isset($SESSION["qtt"])){
+                            $_SESSION["message"]="Veuillez remplir le(s) champ(s) vide(s)";
+                            echo "<p id='alerte'>".$_SESSION["message"]."</p>";
                         }else{ 
-                            $_SESSION['message']="Produit ajouté!";
-                            echo $_SESSION['message'];
-                            // echo "<p id='alerte'>".$_SESSION['ajoute']."</p>";
+                            $_SESSION["message"]="Produit ajouté!";
+                            echo "<p id='alerte'>".$_SESSION["message"]."</p>";
                         }
                     ?>
+                    </form>
+  
                 </div>
         </div>   
 
