@@ -6,30 +6,34 @@
     session_start(); //crée une session ou restaure celle trouvée sur le serveur;
     // => session_start(); -> cette fonction permet de démarrer une session de l'utilisateur sur le serveur OU récupérer la session de cet
     //utilisateur. La récupération est rendue possible par l'enregistrement par le serveur d'un COOKIE PHPSESSID dans le navigateur client. 
-    //Les cookies sont transmis au serveur par chaque requête HTTP effectuée par le client. 
+    //Les cookies sont transmis au serveur par chaque requête HTTP effectuée parle client. 
     //La durée de vie d'un cookie dépend de la configuration serveur. Par défaut, le cookie expire à la fermeture du navigateur :
     //Expiration/Max-Age=Session
 
         if(isset($_GET["action"])){
             // -> permet de collecter les infos des champs "input"
 
-            // l'attribut action : indique la cible du formulaire = le fichier à atteindre lorsque l'utilisateur soumet le formulaire 
-            // l'attribut method : précise par quelle méthode HTTP les données du formulaire sont transmises; La méthode POST permet de passer les 
-            // données saisies par l'utilisateur dans la requête elle-même. Cette méthode permet de ne pas polluer l'URL contrairement à la méthode
-            // GET (méthode par défaut si rien n'est précisé). Avec la méthode GET, les données des champs seraient inscrites dans l'URL et dès lors
-            // limitées en nombre de caractères 
-
             switch($_GET["action"]){
                 case "add":
                     if(isset($_POST['submit'])){
-    
-                    //$_POST -> variable superglobale (variable permettant de récupérer des infos transmises par le client au serveur) qui contient toutes
-                    //les données transmises au serveur par l'intermédiaire d'un formulaire 
-                    // => if(isset($_POST['submit'])){} -> permet de vérifier l'existence de la clé "submit" dans le tableau $_POST
-                    //La clé 'submit' correspond à l'attribut 'name' du bouton <input type="submit" name ="submit">.
-                    //Cette condition permet que le fichier traitement.php ne soit pas atteignable par l'URL
-                    //Ainsi seules les requêtes HTTP provenant de la soumission du formulaire sont recevables
-                    // si la condition est fausse, cf header();
+                    // vérifie l'existence de la clé 'submit' dans le tableau associatif $_POST qui contient infos transmises
+                    // par client au serveur via formulaire 
+
+                    // isset() -> détermine si une variable est définie (/non-définie -> valeur = null -> renvoie false)
+         
+                    //La clé 'submit' correspond à l'attribut 'name' du bouton : 
+                    //                    <input type="submit" name ="submit" value="Ajouter un produit">.
+                    // lorsqu'un utilisateur clique sur "Ajouter le produit", l'élément $_POST['submit'] est ajouté à $_POST : 
+                    //                      $_POST = [
+                    //                                'submit' => 'Ajouter le produit'
+                    //                               ]
+                    
+                    // Ce test vérifie si le formulaire a été soumis par l'utilisateur ET rend traitement.php inatteignable via l'URL :
+                    // Le test ne renvoie TRUE QUE si les données sont envoyées via la méthode POST 
+                    // Si une requête GET est reçue, le test renvoie FALSE et renvoie à header () et le code dans la condition n'est pas exécuté
+                    // REQUÊTE GET = accéder à la page directement via l'URL sans soumettre de formulaire 
+            
+                    // ====> seules les requêtes HTTP provenant de la soumission du formulaire sont recevables
                         
                         $name = filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING);
                         $price = filter_input(INPUT_POST,"price",FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -46,35 +50,26 @@
                         // => donc pas de risque que l'utilisateur transmette un champ supplémentaire
                     
                             if($name && $price && $qtt){
-                    
                             // => if($name && $price && $qtt){} -> permet de vérifier si les filtres ont fonctionné.
                             //La condition = la variable contient-elle une valeur positive (string, number, ...) ou false, null, 0?
                             //on veut juste vérifier si les variables contiennent chacune une valeur jugée positive, puisqu'un filtre qui échoue renvoie false
                             // ou null 
-                    
-                                            
+                                                    
                                 $product = [
                                     "name" => $name,
                                     "price" => $price,
                                     "qtt" => $qtt,
                                     "total" => $price*$qtt,
-                                    "nbArticles" => $nbArticles,
                                 ];
-                          
-
                                 // création d'un tableau associatif pour organiser les données 
 
-                                    $_SESSION['products'][]=$product;
+                                $_SESSION['products'][]=$product;
+                                    //$_SESSION -> enregistre $product en session 
+                                    // [] création d'un nouvel array pour chaque produit 
 
-                                    //$_SESSION -> permet d'enregistrer $product en session
-                                    // plus généralement, cette superglobale contient les données stockées dans la session utilisateur côté serveur
-                                    //(à condition que la session ait été démarrée)
-                                    // le tableau associatif $product et $SESSION['products'][]=$product; => permet de stocker
-                                    //   les données en session, en l'ajoutant au tableau $_SESSION
-
-                                    $_SESSION['message']=$message;
-
+                                
                              }
+
                     }
            
                     header("Location:index.php");
