@@ -69,40 +69,42 @@
                              }
                     }
            
-                    header("Location:index.php");
+                    // header("Location:index.php");
                     break;
-                    die;
+                    // die;
 
           
 
                 case "clear":
                     unset($_SESSION['products']) ;
-                    header("Location:index.php");
+                    // header("Location:index.php");
                     break;
-                    die;
+                    // die;
                 
                 case "deleteItem":
                     // je vais chercher la valeur de l'index dans l'url pour pointer le bon objet  
-                     
                     unset($_SESSION['products'][$_GET['id']]);
-                    header("Location:index.php");
+                    // header("Location:index.php");
                     break;
                     die;
                 
                 case "u-qtt":
-                    ($_SESSION['products'][$_GET['id']]['qtt']++);
-                    header("Location:index.php");
+                
+                        $_SESSION['products'][$_GET['id']]['qtt']++;
+                
+                    // header("Location:index.php");
                     break;
                     die;
                 
                 case "down-qtt":
-                    ($_SESSION['products'][$GET_['id']]['qtt']++);
-                    header("Location:index.php");
+                    $_SESSION['products'][$_GET['id']]['qtt']--;
+                    // header("Location:index.php");
                     break;
                     die;
              }
         }
 
+        
        
         header("Location:index.php");
 

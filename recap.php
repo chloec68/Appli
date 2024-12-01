@@ -74,12 +74,10 @@
                             "<td>".$index."</td>",
                             "<td>".$product['name']."</td>",
                             "<td>".number_format($product['price'],2,",","&nbsp;")."&nbsp;€</td>",
-                            "<td><button name='plus'>+</button>"." ".$product['qtt']." "."<button name='minus'>-</button></td>",
-                            "<td>".number_format($product['total'],2,",","&nbsp;")."&nbsp;€"." "."<a href='traitement.php?action=deleteItem&id=$index'>Supprimer l'article</a></td>",
+                            "<td>"."<a href='traitement.php?action=u-qtt&id=$index'>+</a>".$product['qtt']."<a href='traitement.php?action=down-qtt&id=$index'>-</a>"."</td>",
+                            "<td>".number_format($product['total'],2,",","&nbsp;")."&nbsp;€"." "."<div id='delete'>"."<a href='traitement.php?action=deleteItem&id=$index'>Supprimer l'article</a>"."</div></td>",
                         "</tr>";
                     $totalGeneral+=$product['total'];
-            
-
                 }
             // Apparition totaux à la fin du tableau
                 echo "<tr>",
