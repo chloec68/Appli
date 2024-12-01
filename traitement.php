@@ -67,8 +67,10 @@
                                     // [] création d'un nouvel array pour chaque produit 
 
                              }
+
+                             
                     }
-           
+                
                     // header("Location:index.php");
                     break;
                     // die;
@@ -79,34 +81,30 @@
                     unset($_SESSION['products']) ;
                     // header("Location:index.php");
                     break;
-                    // die;
                 
                 case "deleteItem":
                     // je vais chercher la valeur de l'index dans l'url pour pointer le bon objet  
                     unset($_SESSION['products'][$_GET['id']]);
                     // header("Location:index.php");
                     break;
-                    die;
                 
                 case "u-qtt":
-                
                         $_SESSION['products'][$_GET['id']]['qtt']++;
-                
                     // header("Location:index.php");
                     break;
-                    die;
-                
+
                 case "down-qtt":
                     $_SESSION['products'][$_GET['id']]['qtt']--;
                     // header("Location:index.php");
                     break;
-                    die;
+                  
              }
+             header("Location:index.php");
         }
 
         
        
-        header("Location:index.php");
+
 
         // => header() -> dans le cas où la condition filter_input() est fausse, cette fonction effectue une redirection en envoyant un nouvel en-tête HTTP
         // au client. 
@@ -116,15 +114,3 @@
         // 2. header() doit être la dernière instruction du fichier ou être immédiatement suivie de exit() ou die(), en raison de l'exécution du script
         //courant = n'arrête pas l'exécution du script courant 
 
-
-
-
-
-
-
-
-
-
-
-//['product'] => permet de créer la clé (si 1er article ajouté au panier) ou de récupérer l'existante
-// [] => raccourci indiquant que nous ajoutons une nouvelle entrée au futur tableau "productS" associé à cette clé
