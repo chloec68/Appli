@@ -18,6 +18,10 @@ div td{
     margin:auto;
 }
 
+#fonctionnalites{
+    text-align: center;
+}
+
 /* NAVBAR */
 #navBar{
     width:100%;

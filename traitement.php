@@ -38,7 +38,6 @@
                         $name = filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING);
                         $price = filter_input(INPUT_POST,"price",FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                         $qtt = filter_input(INPUT_POST,"qtt",FILTER_VALIDATE_INT);
-                        $nbArticles = filter_input(INPUT_POST,"nbArticles",FILTER_VALIDATE_INT);
                 
                         // => FILTER_SANITIZE_STRING (champ "name") -> ce filtre supprime une chaîne de caractères de toute présence de caractères spéciaux
                         // et de toute balise HTML potentielle ou les encode -> impossible d'injecter du HTML
@@ -66,10 +65,25 @@
                                 $_SESSION['products'][]=$product;
                                     //$_SESSION -> enregistre $product en session 
                                     // [] création d'un nouvel array pour chaque produit 
-
                                 
+
+
+                     
+                        
                              }
 
+                             $nbArticles=0;
+
+                             if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
+                                 echo $_SESSION['nbArticles'] = "0 article dans le panier";
+                             }else{
+                                 foreach($_SESSION['products'] as $index => $product){
+                                     $nbArticles+= $_SESSION['products'][$index]['qtt'];
+                                 }
+                                 echo $nbArticles . " article(s) dans le panier";
+                             }
+                             
+                             $_SESSION['nbArticles'] = $nbArticles;
                     }
            
                     header("Location:index.php");
@@ -109,12 +123,13 @@
        
         header("Location:index.php");
 
-        // => header() -> dans le cas où la condition précédente est fausse, cette fonction effectue une redirection en envoyant un nouvel entête HTTP
+        // => header() -> dans le cas où la condition filter_input() est fausse, cette fonction effectue une redirection en envoyant un nouvel en-tête HTTP
         // au client. 
+        // Une en-tête HTTP est une ligne de texte envoyée par le serveur web au navigateur avant le contenu de la page
         // /!\ la fonction header() nécessite 2 précautions :
         // 1. pas d'émission d'un début de réponse avant header() par la page 
         // 2. header() doit être la dernière instruction du fichier ou être immédiatement suivie de exit() ou die(), en raison de l'exécution du script
-        //courant.
+        //courant = n'arrête pas l'exécution du script courant 
 
 
 

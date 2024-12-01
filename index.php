@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ajout produit</title>
         <!-- FEUILLES DE STYLE -->
-        <link rel="stylesheet" href="styles_index.css">
+        <link rel="stylesheet" href="styles_&_img/styles_index.css">
         <!-- FONTS -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,23 @@
                     <a href="recap.php"><p>Retour au panier</p></a>
                 </div>
                 <div id="navBar__nbArticles">
-                    <?php include "totalArticles.php"; ?>
+                    <?php 
+                    session_start();
+                    $nbArticles=0;
+                    if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
+                        echo $_SESSION['nbArticles'] = "0 article dans le panier";
+                    }else{
+                        foreach($_SESSION['products'] as $index => $product){
+                            $nbArticles+= $_SESSION['products'][$index]['qtt'];
+                        }
+                            if($nbArticles > 1){
+                                echo $nbArticles . " articles dans le panier";
+                            }else{
+                                echo $nbArticles . " article dans le panier";
+                            }
+                    }
+
+                    ?>
                 </div>
             </div>
         </nav>
@@ -69,22 +85,6 @@
 
                         <!-- Le bouton du formulaire a été nommé pour pouvoir vérifier côté serveur que le formulaire a été validé par l'utilisateur -->
                     </form>
-
-                    <?php 
-
-                        if (isset($_POST['submit']) && !empty($_SESSION['name']) && !empty($_SESSION['price']) && !empty($_SESSION['qtt'])){
-                            echo "Produit ajouté!";
-               
-                        }else{
-                            echo "Veuillez remplir le(s) champ(s) vide(s)";
-                         
-                        }
-                        // echo "<br>";
-                        // var_dump(isset($_POST['submit'])); ---- > RENVOIE FALSE
-                        // echo "<br>";
-                        // var_dump($_SESSION);
-                    ?>
-  
                 </div>
         </div>  
 
