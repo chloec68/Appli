@@ -70,48 +70,45 @@
                          
 
                              }
+
+                             $_SESSION['remplirChamps'] = "Veuillez remplir les champs vides"; 
                     }
                 
-                    // header("Location:index.php");
-                    break;
-                    // die;
 
+                    break;
+               
           
 
                 case "clear":
                     unset($_SESSION['products']) ;
-                    // header("Location:index.php");
                     break;
                 
                 case "deleteItem":
                     // je vais chercher la valeur de l'index dans l'url pour pointer le bon objet  
                     unset($_SESSION['products'][$_GET['id']]);
-                    // header("Location:index.php");
                     break;
                 
                 case "u-qtt":
-                        $_SESSION['products'][$_GET['id']]['qtt']++;
-                    // header("Location:index.php");
+                    $_SESSION['products'][$_GET['id']]['qtt']++;
                     break;
 
                 case "down-qtt":
                     $_SESSION['products'][$_GET['id']]['qtt']--;
-                    // header("Location:index.php");
                     break;
                   
              }
              header("Location:index.php");
+             header("Location:recap.php");
+         
+            // => header() -> dans le cas où la condition filter_input() est fausse, cette fonction effectue une redirection en envoyant un nouvel en-tête HTTP
+            // au client. 
+            // Une en-tête HTTP est une ligne de texte envoyée par le serveur web au navigateur avant le contenu de la page
+            // /!\ la fonction header() nécessite 2 précautions :
+            // 1. pas d'émission d'un début de réponse avant header() par la page 
+            // 2. header() doit être la dernière instruction du fichier ou être immédiatement suivie de exit() ou die(), en raison de l'exécution du script
+            //courant = n'arrête pas l'exécution du script courant 
+
         }
 
-        
-       
 
-
-        // => header() -> dans le cas où la condition filter_input() est fausse, cette fonction effectue une redirection en envoyant un nouvel en-tête HTTP
-        // au client. 
-        // Une en-tête HTTP est une ligne de texte envoyée par le serveur web au navigateur avant le contenu de la page
-        // /!\ la fonction header() nécessite 2 précautions :
-        // 1. pas d'émission d'un début de réponse avant header() par la page 
-        // 2. header() doit être la dernière instruction du fichier ou être immédiatement suivie de exit() ou die(), en raison de l'exécution du script
-        //courant = n'arrête pas l'exécution du script courant 
 

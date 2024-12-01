@@ -89,6 +89,11 @@
                         if(isset($_SESSION['added'])){
                             echo $_SESSION['added'];
                             unset($_SESSION['added']);
+                        }else if(isset($_SESSION['remplirChamps'])){
+                            echo $_SESSION['remplirChamps'];
+                            unset($_SESSION['remplirChamps']);
+                        }else{
+                            unset($_SESSION['remplirChamps']);
                         }
                     ?>
                 </div>
