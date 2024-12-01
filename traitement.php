@@ -65,25 +65,8 @@
                                 $_SESSION['products'][]=$product;
                                     //$_SESSION -> enregistre $product en session 
                                     // [] création d'un nouvel array pour chaque produit 
-                                
 
-
-                     
-                        
                              }
-
-                             $nbArticles=0;
-
-                             if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
-                                 echo $_SESSION['nbArticles'] = "0 article dans le panier";
-                             }else{
-                                 foreach($_SESSION['products'] as $index => $product){
-                                     $nbArticles+= $_SESSION['products'][$index]['qtt'];
-                                 }
-                                 echo $nbArticles . " article(s) dans le panier";
-                             }
-                             
-                             $_SESSION['nbArticles'] = $nbArticles;
                     }
            
                     header("Location:index.php");
