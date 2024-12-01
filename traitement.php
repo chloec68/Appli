@@ -66,9 +66,10 @@
                                     //$_SESSION -> enregistre $product en session 
                                     // [] création d'un nouvel array pour chaque produit 
 
-                             }
+                                $_SESSION['added'] = "produit ajouté!";
+                         
 
-                             
+                             }
                     }
                 
                     // header("Location:index.php");

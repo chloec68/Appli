@@ -5,7 +5,7 @@
 }
 
 #tableContainer{
-    height:50vh;
+    height:fit-content;
     margin-top: 20vh;
 }
 

@@ -85,6 +85,12 @@
 
                         <!-- Le bouton du formulaire a été nommé pour pouvoir vérifier côté serveur que le formulaire a été validé par l'utilisateur -->
                     </form>
+                    <?php
+                        if(isset($_SESSION['added'])){
+                            echo $_SESSION['added'];
+                            unset($_SESSION['added']);
+                        }
+                    ?>
                 </div>
         </div>  
 

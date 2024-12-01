@@ -79,6 +79,7 @@
                         "</tr>";
                     $totalGeneral+=$product['total'];
                 }
+           
             // Apparition totaux à la fin du tableau
                 echo "<tr>",
                         "<td colspan=4>Total général : </td>",
@@ -92,6 +93,7 @@
                     <a href='traitement.php?action=clear'>Vider le panier</a>
                     </div>";
             };
+    
             ?>
     </body>
 </html>
