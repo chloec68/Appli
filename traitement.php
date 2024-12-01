@@ -75,10 +75,8 @@
                     }
                 
 
-                    break;
+                break;
                
-          
-
                 case "clear":
                     unset($_SESSION['products']) ;
                     break;
