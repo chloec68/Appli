@@ -5,6 +5,7 @@
     height:10vh;
     background-color:blanchedalmond;
     display:flex;
+
 }
 
 #navBar__nbArticles{
@@ -41,10 +42,15 @@
     margin:auto;
 }
 
-
+s
 /*************************************** WRAPPER */
 body{
-    background-color: rgb(255, 169, 104);
+    /* background: url(./2680265.jpg);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position-y:-10%; */
+   
+
 }
 
 #wrapper{
@@ -81,7 +87,9 @@ th,td,a{
 table{
     width:fit-content;
     height: fit-content;
-    background-color: white;
+    background-color:white;
+    opacity: 80%;
     border-radius: 20px;
-    
+    padding:50px;
 }
+

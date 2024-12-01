@@ -3,9 +3,11 @@
 body
 {
     margin: 0;
-    background: url(./black-friday-elements-assortment.jpg);
+    /* background: url(./black-friday-elements-assortment.jpg); */
+    /* background: url(./black-friday-elements-assortment.jpg);
     background-size: 100%;
-    background-position-y: center;
+    background-position-y: center; */
+
 } 
 
 /************************************* NAVBAR */
@@ -14,6 +16,7 @@ body
     height:10vh;
     background-color:blanchedalmond;
     display:flex;
+    opacity: 80%;
 }
 
 #navBar__nbArticles{
@@ -56,8 +59,8 @@ h1{
 
 #mainContent__wrapper{
   width:15%;
-  background-color: rgb(141, 199, 181, 0.81);
-  border:1px solid rgb(85, 85, 85);
+  background-color: rgba(0, 156, 240, 0.211);
+  border:1px solid rgba(85, 85, 85, 0.967);
   border-radius: 30px;
   padding:10px;
   margin:50px auto 50px auto;
