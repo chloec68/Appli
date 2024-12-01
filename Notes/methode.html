@@ -1,0 +1,29 @@
+UTILISER DES VARIABLES DE SESSION - exemple : afficher un message 
+
+<?php
+    DANS TRAITEMENT.PHP
+1 . Démarrer la session : session_start(); 
+
+2. Stocker un message dans une variable et l'enregistrer en session :
+    $message = "salut" ; 
+    $_SESSION('message') = $message ; 
+    
+    -> $_SESSION('message') = 'salut'; 
+    
+    DANS UN AUTRE FICHIER.PHP
+3. Vérifier si le message est défini  : 
+    if(isset($_SESSION['message'])){
+
+    }
+
+4. Afficher le message : 
+    if(isset($_SESSION['message'])){
+        echo "<div class='message'>$_SESSION['message']</div>";
+    }
+
+5. "Vider" la variable de session : 
+if(isset($_SESSION['message'])){
+    echo "<div class='message'>$_SESSION['message']</div>";
+    isset($_SESSION['message']);
+}
+?>

@@ -84,18 +84,19 @@
                           l'utilisteur -->
 
                         <!-- Le bouton du formulaire a été nommé pour pouvoir vérifier côté serveur que le formulaire a été validé par l'utilisateur -->
-                    </form>
+                   
                     <?php
                         if(isset($_SESSION['added'])){
-                            echo $_SESSION['added'];
+                            echo "<div id=message><p>".$_SESSION['added']."</p></div>";
                             unset($_SESSION['added']);
                         }else if(isset($_SESSION['remplirChamps'])){
-                            echo $_SESSION['remplirChamps'];
+                            echo "<div id=message><p>".$_SESSION['remplirChamps']."</p></div>";
                             unset($_SESSION['remplirChamps']);
                         }else{
                             unset($_SESSION['remplirChamps']);
                         }
                     ?>
+                     </form>
                 </div>
         </div>  
 

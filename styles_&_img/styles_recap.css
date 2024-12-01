@@ -1,28 +1,5 @@
-#wrapper{
-    width:100%;
-    display: flex;
-    justify-content: center;
-}
-
-#tableContainer{
-    height:fit-content;
-    margin-top: 20vh;
-}
-
-div td{
-    padding:10px;
-}
-
-#nbArticlesContainer{
-    width:100%;
-    margin:auto;
-}
-
-#fonctionnalites{
-    text-align: center;
-}
-
-/* NAVBAR */
+/************************************** NAVBAR */
+/* LEFT : AJOUTER UN PRODUIT */
 #navBar{
     width:100%;
     height:10vh;
@@ -55,4 +32,56 @@ div td{
 
 #navBar__previous:hover{
     transform: scale(1.3);
+}
+
+/* RIGHT : N ARTICLES DANS LE PANIER */
+
+#nbArticlesContainer{
+    width:100%;
+    margin:auto;
+}
+
+
+/*************************************** WRAPPER */
+body{
+    background-color: rgb(255, 169, 104);
+}
+
+#wrapper{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ************************************** TABLEAU*/
+#tableContainer{
+    height:fit-content;
+    margin-top: 20vh;
+}
+
+div td{
+    padding:10px;
+}
+
+#viderPanier__Container{
+    text-align: center;
+}
+
+th,td,a{
+    font-family: "Quicksand", sans-serif;
+}
+
+#plus,#moins{
+    font-size: 1.5em;
+    padding:2px;
+    margin:2px;
+    text-decoration: none;
+}
+
+table{
+    width:fit-content;
+    height: fit-content;
+    background-color: white;
+    border-radius: 20px;
+    
 }

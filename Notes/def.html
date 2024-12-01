@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+
+    http://monsite.com/liste.php?page-=2 
+
+http:// -> le protocole de communication 
+
+    HTTP est un protocole de type client-serveur qui est à la base de tout échange de donnnées sur le web. 
+    1. Une requête est initiée par le client/destinataire (généralement un navigateur web)
+    2. Un document complet est construit à partir de différentes ressources (sous-documents) qui sont récupérés. 
+    3. La commmunication est effectuée par échange de messages individuels (/en opposition à flux de données). 
+    4. Les messages initiés par le destinataires sont des requêtes, les messages renvoyés par le serveur sont des réponses.
+
+monsite.com -> le nom de domaine du serveur sur le réseau Internet 
+liste.php -> la ressource (=le fichier) demandée 
+?page=2 -> le paramètre de requête "page" et la valeur "2" === QUERY STRING PARAMETER 
+
+===> Le QUERY STRING PARAMETER est référencé dans une variable superglobale conçue pour récupérer les paramètres de requête d'une URL : $_GET
+
+LES SUPERGLOBALES 
+
+Les superglobales sont des variables prédéfinies en PHP, disponibles partout dans le script (au sein d'une fonction, d'une classe ou d'un autre fichier); 
+Elle est "super" parce qu'elle est disponible partout, sans avoir besoin de la passer à chaque fois. 
+
+    SCRIPT =  un fichier contenant une série d'instructions écrites dans un langage de programmation, qui peut être exécuté pour accomplir
+    une tâche particulière. 
+
+Les 9 variables superglobales sont :
+    $GLOBALS
+    $_GET -> contient les données envoyées par l'URL (Query String Parameter)
+        ex : Url précédent ;
+        array (size=1)
+            'page' => string '2' (Length=1)
+
+            Ainsi page est une clé associée à la valeur 2 - la valeur est de type string (/INT) car HTTP est un protocole de communication de texte HyperText Transfer Protocol ---> toutes les informations échangées via ce protocole entre le client (navigateur web) et le serveur web sont sous forme de texte
+    $_POST -> contient les données envoyées par un formulaire utilisant la méthode POST (Form Data ou Request Body Parameters)
+    $_FILES -> continent des informations (nom,taille, type, chemin temporaire du fichier...) sur chaque fichier téléchargé (UPLOAD) par un utilisateur via un formulaire (ex: [ajouter un fichier...])
+    Conditions : <input type ="file"> + <form enctype="multipart/form-data" 
+    $_COOKIE -> contient les informations envoyées par le navigateur dans les cookies 
+    $_SESSION -> permet de stocker (dans la session utilisteur) des données (côté serveur) et de les rendre ainsi accessibles sur plusieurs pages - à condition que la session ait été préalablement démarrée
+    $_REQUEST -> contient toutes les données enoyées par les méthodes GET, POST et COOKIE - ainsi la méthode utilisée pour envoyer les données 
+    n'a pas d'incidence 
+
+    $_ENV -> contient des variables d'environnement (serveur, production,etc)
+    $_SERVER -> donne des informations sur le serveur web (adresse IP du client, type de navigateur utilisé ...)
+    ---> Ces deux dernières ne concernent pas les données transmises par le client au serveur
+
+Toutes les superglobales sont des tableaux associatifs (-> méthode pour accéder aux infos d'un tableau associatif : $tableName['keyName'][index])
+
+UNE SESSION 
+
+La session est un moyen permettant de stocker des données individuelles de chaque utilisateur (pendant qu'il navigue sur un site), en utilisant
+un identifiant de session unique (ID de session).
+Les identifiants de session sont conservés sous forme de cookies de session dans le navigateur de l'utilisateur. Cela permet de mémoriser des données à
+travers différentes pages sans avoir besoin de les renvoyer à chaque fois via des formulaires ou l'URL.
+L'identifiant est utilisé pour récupérer les données existantes de la session. 
+
+Donc : démarrage session -> création ID unique (PHPSESSID) -> stockage de l'ID sous forme de cookie dans le navigateur utilisatueur -> ce cookie
+permet à PHP de retrouver la session associée et les données sur chaque page du site ; 
+
+La session permet donc de conserver l'état de l'utilisateur entre différentes pages (authentification, panier d'achat, préférences utilisateurs telles que le thème);
+
+Démarrage d'une session : appel de session_start() au début du script où l'on souhaite accéder ou modifier les données de la session ;
+En l'absence d'un identifiant de session ou d'un cookie de session (qui stocke l'ID), PHP crée une nouvelle session et génère un nouvel id. 
+
+Stocker des données en session : $_SESSION ;
+
+Fermeture d'une session : les sessions s'arrêtent automatiquement à la fermeture du navigateur (ou à l'expiration d'un certain délai défini par le serveur) ou peuvent être stoppées manuellement avec session_destroy(); 
+Cela supprime toutes les données associées à la session 
+
+FAILLE XSS 
+
+DEFINITION D'UNE FAILLE XSS : Cross-site scripting est une faille de sécurité par laquelle est injectée du script via les paramètres
+d'entrée côté client (dans un champ de formulaire ou dans l'adresse URL).
+Il existe trois types d'attaques XSS :
+- les attaques stockées (stored XSS) : le script est stocké sur le serveur 
+- les attaques reflettées (reflected XSS) : le script est renvoyé dans la réponse du serveur car il n'est pas stocké
+- les attaques basées sur le DOM (DOM-based XSS) : le script n'utilise pas le serveur et permet la modification de la structure DOM
+Une des manières sûre de parer les attaques XSS : l'echappement -> tous les caractères spéciaux sont remplacés par des valeurs encodés, de manière
+à ce que toute donnée saisie par un utilisateur soit traitée comme du texte. 
+
++ filter_input, filter_var, htmlentities, htmlspecialchars
+
+    </pre>
+</body>
+</html>
+

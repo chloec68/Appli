@@ -53,6 +53,7 @@
                 echo "<p>Aucun produit en session...</p>";
         // Si produit, afficher tableau
             }else{
+            
                 echo "<div id='wrapper'>",
                         "<div id='tableContainer'>",
                             "<table>",
@@ -74,11 +75,13 @@
                             "<td>".$index."</td>",
                             "<td>".$product['name']."</td>",
                             "<td>".number_format($product['price'],2,",","&nbsp;")."&nbsp;€</td>",
-                            "<td>"."<a href='traitement.php?action=u-qtt&id=$index'>+</a>".$product['qtt']."<a href='traitement.php?action=down-qtt&id=$index'>-</a>"."</td>",
-                            "<td>".number_format($product['total'],2,",","&nbsp;")."&nbsp;€"." "."<div id='delete'>"."<a href='traitement.php?action=deleteItem&id=$index'>Supprimer l'article</a>"."</div></td>",
+                            "<td>"."<button><a id='plus' href='traitement.php?action=u-qtt&id=$index'>+</a></button>"." ".$product['qtt']." "."<button><a id='moins' href='traitement.php?action=down-qtt&id=$index'>-</a></button>"."</td>",
+                            "<td>".number_format($product['total'],2,",","&nbsp;")."&nbsp;€"."</td>",
+                            "<td>"."<a href='traitement.php?action=deleteItem&id=$index'>Supprimer l'article</a>"."</td>";
                         "</tr>";
                     $totalGeneral+=$product['total'];
                 }
+                
            
             // Apparition totaux à la fin du tableau
                 echo "<tr>",
@@ -89,9 +92,10 @@
                     "</table>",
                                 "</div>",
                                     "</div>";
-                echo "<div id='fonctionnalites'>
+                echo "<div id='viderPanier__Container'>
                     <a href='traitement.php?action=clear'>Vider le panier</a>
                     </div>";
+                   
             };
     
             ?>
