@@ -63,6 +63,13 @@ body{
 
 }
 
+#panierVide{
+    font-size: 1.3em;
+    color:#1e3d29;
+    text-align: center;
+    font-family:"Quicksand", sans-serif;
+}
+
 #wrapper{
     width:100%;
     display: flex;

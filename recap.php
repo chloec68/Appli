@@ -49,7 +49,7 @@
         <?php
         // Si 1. le tableau associatif $_SESSION['products'] n'existe ou pas OU 2.si ce tableau associatif est vide
             if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
-                echo "<p>Aucun produit en session...</p>";
+                echo "<p id='panierVide'>Aucun produit en session...</p>";
         // Si produit, afficher tableau
             }else{
             
