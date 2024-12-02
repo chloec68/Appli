@@ -21,13 +21,13 @@ body {
   top:5vh;
   font-family: "Quicksand", sans-serif;
   font-size:1.3em;
-  color:#285238;
+  color:#1e3d29;
 }
 
 #navBar__previous{
     width:max-content;
     padding: 3vh 0 3vh 10vh;
-    color:#285238;
+    color:#1e3d29;
     font-size: 1.3em;
 }
 
