@@ -22,6 +22,8 @@ body {
   top:5vh;
   font-family: "Quicksand", sans-serif;
   font-weight:500;
+  font-size: 1.3em;
+  color:#1e3d29;
 }
 
 #navBar__previous{
@@ -36,7 +38,8 @@ body {
 #navBar__previous a{
     font-size:1em;
     font-family: "Quicksand", sans-serif;
-    color:rgb(85, 85, 85);
+    color:#1e3d29;
+    font-size:1.3em;
 }
 
 #navBar__previous:hover{
@@ -82,6 +85,7 @@ div td{
 
 th,td,a{
     font-family: "Quicksand", sans-serif;
+    color: #0d1b12;
 }
 
 #plus,#moins{
