@@ -88,6 +88,7 @@
                 
                 case "u-qtt":
                     $_SESSION['products'][$_GET['id']]['qtt']++;
+                    // $_SESSION['total'][$_GET['id']]['total']
                     break;
 
                 case "down-qtt":
