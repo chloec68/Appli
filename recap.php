@@ -80,7 +80,6 @@
                         "</tr>";
                     $totalGeneral+=$product['total'];
                 }
-                
            
             // Apparition totaux à la fin du tableau
                 echo "<tr>",

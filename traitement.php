@@ -88,11 +88,14 @@
                 
                 case "u-qtt":
                     $_SESSION['products'][$_GET['id']]['qtt']++;
-                    // $_SESSION['total'][$_GET['id']]['total']
+                    $_SESSION['products'][$_GET['id']]['total'] += $_SESSION['products'][$_GET['id']]['price'];
+               
                     break;
 
                 case "down-qtt":
                     $_SESSION['products'][$_GET['id']]['qtt']--;
+                    $_SESSION['products'][$_GET['id']]['total'] -= $_SESSION['products'][$_GET['id']]['price'];
+                    
                     break;
                   
              }

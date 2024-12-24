@@ -65,7 +65,7 @@
                         <p>
                             <label>
                                 Prix du produit : 
-                                <input class="champsFormulaire" type="number" step="any" name="price">
+                                <input class="champsFormulaire" type="number" step="any" name="price" min="0">
                             </label>
                         </p>
                         <p>
