@@ -24,6 +24,6 @@ UTILISER DES VARIABLES DE SESSION - exemple : afficher un message
 5. "Vider" la variable de session : 
 if(isset($_SESSION['message'])){
     echo "<div class='message'>$_SESSION['message']</div>";
-    isset($_SESSION['message']);
+    unset($_SESSION['message']);
 }
 ?>
